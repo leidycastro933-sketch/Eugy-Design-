@@ -1,0 +1,261 @@
+
+/* =================================
+   EUGY DESIGN - ESTILO PRINCIPAL
+================================= */
+
+:root {
+    --azul-fondo: #dff2ff;
+    --azul-claro: #c6e8ff;
+    --azul-profundo: #164d78;
+    --dorado: #b8860b;
+    --dorado-brillante: #e0ad32;
+    --blanco: #ffffff;
+    --texto: #24445d;
+}
+
+/* CONFIGURACIÓN GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background-color: var(--azul-fondo);
+    color: var(--texto);
+}
+
+/* ENCABEZADO */
+
+.encabezado {
+    background: linear-gradient(
+        135deg,
+        #eaf7ff,
+        #c6e8ff
+    );
+    padding: 25px 6%;
+    text-align: center;
+    border-bottom: 3px solid var(--dorado-brillante);
+    box-shadow: 0 4px 15px rgba(22, 77, 120, 0.12);
+}
+
+.logo h1 {
+    font-size: 42px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: var(--dorado);
+    text-shadow: 1px 2px 1px #ffffff,
+                 2px 3px 5px rgba(120, 80, 0, 0.25);
+}
+
+.logo p {
+    color: var(--azul-profundo);
+    font-size: 15px;
+    margin-top: 8px;
+    letter-spacing: 2px;
+}
+
+/* MENU */
+
+.menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--dorado);
+    font-weight: bold;
+    font-size: 17px;
+    padding: 11px 22px;
+    border: 1px solid var(--dorado);
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    background-color: var(--azul-profundo);
+    color: #ffd76a;
+    transform: translateY(-3px);
+}
+
+/* INICIO */
+
+.inicio {
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 70px 20px;
+    background: linear-gradient(
+        135deg,
+        #dff2ff,
+        #b9e2ff,
+        #eaf7ff
+    );
+}
+
+.inicio-contenido {
+    max-width: 750px;
+}
+
+.frase-superior {
+    color: var(--dorado);
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 22px;
+}
+
+.inicio h2 {
+    color: var(--dorado);
+    font-size: clamp(36px, 6vw, 60px);
+    margin-bottom: 20px;
+    text-shadow: 1px 2px 2px #ffffff;
+}
+
+.inicio-contenido > p:not(.frase-superior) {
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--azul-profundo);
+    margin-bottom: 30px;
+}
+
+/* BOTONES */
+
+.boton-principal {
+    display: inline-block;
+    background: linear-gradient(
+        135deg,
+        #164d78,
+        #287bb2
+    );
+    color: #ffd76a;
+    padding: 15px 32px;
+    border: 2px solid var(--dorado-brillante);
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.boton-principal:hover {
+    background: var(--dorado);
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+/* SECCIONES */
+
+.historia,
+.catalogo,
+.contacto {
+    padding: 75px 8%;
+    text-align: center;
+}
+
+.historia {
+    background-color: #f2faff;
+}
+
+.catalogo {
+    background-color: #dff2ff;
+}
+
+.contacto {
+    background-color: #c6e8ff;
+}
+
+.historia h2,
+.catalogo h2,
+.contacto h2 {
+    color: var(--dorado);
+    font-size: 36px;
+    margin-bottom: 22px;
+}
+
+.historia p,
+.catalogo > p,
+.contacto p {
+    max-width: 750px;
+    margin: 0 auto 25px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--azul-profundo);
+}
+
+/* PRODUCTOS */
+
+.lista-productos {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(220px, 1fr)
+    );
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.mensaje-carga {
+    grid-column: 1 / -1;
+    color: var(--azul-profundo);
+}
+
+/* PIE DE PÁGINA */
+
+.pie-pagina {
+    background-color: var(--azul-profundo);
+    color: #ffffff;
+    text-align: center;
+    padding: 35px 20px;
+    border-top: 4px solid var(--dorado-brillante);
+}
+
+.pie-pagina h3 {
+    color: #ffd76a;
+    font-size: 27px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.pie-pagina p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+/* ADAPTACIÓN PARA CELULARES */
+
+@media (max-width: 600px) {
+
+    .logo h1 {
+        font-size: 30px;
+        letter-spacing: 3px;
+    }
+
+    .menu {
+        gap: 10px;
+    }
+
+    .menu a {
+        font-size: 14px;
+        padding: 9px 15px;
+    }
+
+    .inicio {
+        min-height: 400px;
+    }
+
+    .historia,
+    .catalogo,
+    .contacto {
+        padding: 55px 6%;
+    }
+
+}
