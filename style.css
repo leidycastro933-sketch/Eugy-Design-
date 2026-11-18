@@ -419,3 +419,48 @@ body {
     }
 
 }
+
+
+
+/* =================================
+   LOGO 3D ANIMADO - EUGY DESIGN
+================================= */
+
+.inicio-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 25px;
+    perspective: 1000px;
+}
+
+.inicio-logo img {
+    display: block;
+    width: min(85%, 380px);
+    height: auto;
+    object-fit: contain;
+    animation: movimientoLogo 5s ease-in-out infinite;
+    filter: drop-shadow(0 12px 15px rgba(0, 0, 0, 0.22));
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.inicio-logo img:hover {
+    transform: scale(1.06) rotateY(5deg);
+    filter: drop-shadow(0 16px 20px rgba(184, 139, 47, 0.4));
+}
+
+@keyframes movimientoLogo {
+    0%, 100% {
+        transform: translateY(0) rotateY(-3deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotateY(3deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .inicio-logo img {
+        animation: none;
+    }
+}
