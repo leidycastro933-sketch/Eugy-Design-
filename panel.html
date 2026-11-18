@@ -4,23 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Panel de administración | EUGY DESIGN</title>
+
     <link rel="stylesheet" href="style.css">
 
     <style>
+        :root {
+            --panel-azul: #164d78;
+            --panel-azul-oscuro: #103753;
+            --panel-azul-medio: #287bb2;
+            --panel-fondo: #e6f5ff;
+            --panel-dorado: #b8860b;
+            --panel-dorado-brillante: #e0ad32;
+            --panel-dorado-claro: #ffd76a;
+        }
+
         body {
-            background: #dff2ff;
-            font-family: Arial, sans-serif;
-            padding: 25px;
+            min-height: 100vh;
+            padding: 35px 18px;
+            font-family: Georgia, serif;
+            color: #24445d;
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(255, 215, 106, 0.20),
+                    transparent 30%
+                ),
+                linear-gradient(135deg, #eaf7ff, #c6e8ff, #e6f5ff);
         }
 
         .panel-contenedor {
-            max-width: 1100px;
-            margin: 30px auto;
-            background: white;
-            padding: 25px;
-            border: 2px solid #e0ad32;
-            border-radius: 18px;
+            width: 100%;
+            max-width: 1150px;
+            margin: 15px auto;
+            padding: 35px;
+            background: #ffffff;
+            border: 2px solid var(--panel-dorado-brillante);
+            border-radius: 24px;
+            box-shadow: 0 12px 35px rgba(22, 77, 120, 0.15);
         }
 
         .panel-encabezado {
@@ -28,53 +50,256 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 20px;
+            padding-bottom: 25px;
+            border-bottom: 2px solid #f0d58e;
         }
 
-        .panel-encabezado h1 {
-            color: #164d78;
+        .panel-marca h1 {
+            color: var(--panel-dorado);
+            font-size: clamp(28px, 5vw, 42px);
+            letter-spacing: 4px;
+            text-shadow:
+                1px 1px 0 #ffffff,
+                2px 3px 0 #d6a52e,
+                3px 4px 5px rgba(80, 50, 0, 0.18);
         }
 
-        .panel-contenedor h2 {
-            color: #164d78;
+        .panel-marca p {
+            margin-top: 8px;
+            color: var(--panel-azul);
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .panel-titulo {
+            margin: 30px 0 10px;
+            color: var(--panel-azul);
+            font-size: clamp(25px, 4vw, 34px);
+        }
+
+        .panel-descripcion {
+            margin-bottom: 25px;
+            color: #526d80;
+            line-height: 1.7;
+            font-size: 16px;
         }
 
         .boton-panel {
-            background: #164d78;
-            color: white;
-            padding: 12px 18px;
-            border: none;
-            border-radius: 8px;
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 5px 3px;
+            color: var(--panel-dorado-claro);
+            background: linear-gradient(
+                135deg,
+                var(--panel-azul-oscuro),
+                var(--panel-azul-medio)
+            );
+            border: 2px solid var(--panel-dorado-brillante);
+            border-radius: 25px;
+            font-family: Georgia, serif;
+            font-size: 14px;
+            font-weight: bold;
             cursor: pointer;
+            box-shadow: 0 4px 10px rgba(22, 77, 120, 0.13);
+            transition: all 0.25s ease;
+        }
+
+        .boton-panel:hover {
+            color: var(--panel-azul-oscuro);
+            background: linear-gradient(
+                135deg,
+                var(--panel-dorado),
+                var(--panel-dorado-claro)
+            );
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(184, 134, 11, 0.20);
+        }
+
+        .boton-panel:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        #nuevo-producto {
+            margin-top: 5px;
+            padding: 14px 25px;
+            font-size: 15px;
+        }
+
+        #mensaje-panel {
+            margin-top: 22px;
+            padding: 13px 17px;
+            color: var(--panel-azul);
+            background: #edf8ff;
+            border-left: 4px solid var(--panel-dorado-brillante);
+            border-radius: 8px;
+            line-height: 1.5;
         }
 
         .lista-admin {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(245px, 1fr)
+            );
+            gap: 25px;
+            margin-top: 28px;
         }
 
         .producto-admin {
-            border: 1px solid #e0ad32;
-            border-radius: 12px;
-            padding: 15px;
+            padding: 18px;
+            background: #ffffff;
+            border: 2px solid #e9c86f;
+            border-radius: 18px;
+            box-shadow: 0 6px 18px rgba(22, 77, 120, 0.10);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .producto-admin:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(22, 77, 120, 0.16);
+        }
+
+        .producto-admin h3 {
+            margin-bottom: 14px;
+            color: var(--panel-azul);
+            font-size: 21px;
         }
 
         .producto-admin img {
+            display: block;
             width: 100%;
-            height: 220px;
+            height: 235px;
+            margin: 10px 0;
             object-fit: cover;
-            border-radius: 8px;
+            border: 1px solid #e9d49d;
+            border-radius: 12px;
+            background: var(--panel-fondo);
+        }
+
+        .producto-admin p {
+            margin: 10px 0;
+            color: #405c70;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+        }
+
+        .producto-admin p:nth-of-type(2) {
+            color: var(--panel-dorado);
+            font-size: 19px;
+            font-weight: bold;
         }
 
         .producto-admin button {
-            margin: 5px 3px;
+            margin-top: 12px;
         }
 
-        #mensaje-panel {
-            color: #164d78;
-            margin-top: 15px;
+        /* Formulario creado desde panel.js */
+
+        #formulario-producto {
+            background: linear-gradient(135deg, #f7fcff, #eaf7ff);
+            border: 2px solid var(--panel-dorado-brillante) !important;
+            border-radius: 18px !important;
+            box-shadow: 0 7px 20px rgba(22, 77, 120, 0.10);
+        }
+
+        #formulario-producto h2 {
+            color: var(--panel-azul);
+            margin-bottom: 8px;
+        }
+
+        #formulario-producto label {
+            color: var(--panel-azul);
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        #formulario-producto input,
+        #formulario-producto textarea,
+        #formulario-producto select {
+            width: 100%;
+            padding: 12px;
+            color: #24445d;
+            background: #ffffff;
+            border: 1px solid #a9cfe6;
+            border-radius: 9px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        #formulario-producto input:focus,
+        #formulario-producto textarea:focus,
+        #formulario-producto select:focus {
+            outline: none;
+            border-color: var(--panel-dorado-brillante);
+            box-shadow: 0 0 0 3px rgba(224, 173, 50, 0.15);
+        }
+
+        #mensaje-formulario {
+            color: var(--panel-azul);
+            line-height: 1.5;
+        }
+
+        .panel-volver {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 12px 20px;
+            color: var(--panel-azul);
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid var(--panel-dorado-brillante);
+            border-radius: 25px;
+            transition: all 0.25s ease;
+        }
+
+        .panel-volver:hover {
+            color: var(--panel-dorado);
+            background: #fff8e5;
+        }
+
+        .panel-pie {
+            margin-top: 30px;
+            padding-top: 20px;
+            color: #71899a;
+            text-align: center;
+            font-size: 12px;
+            border-top: 1px solid #e5edf2;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px 10px;
+            }
+
+            .panel-contenedor {
+                padding: 22px 15px;
+                border-radius: 17px;
+            }
+
+            .panel-encabezado {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .panel-marca h1 {
+                letter-spacing: 2px;
+            }
+
+            .lista-admin {
+                grid-template-columns: 1fr;
+            }
+
+            .producto-admin img {
+                height: 280px;
+            }
+
+            .boton-panel {
+                padding: 11px 15px;
+                font-size: 13px;
+            }
         }
     </style>
 </head>
@@ -84,24 +309,49 @@
     <main class="panel-contenedor">
 
         <header class="panel-encabezado">
-            <h1>EUGY DESIGN</h1>
+
+            <div class="panel-marca">
+                <h1>EUGY DESIGN</h1>
+                <p>Estilo · Color · Esencia</p>
+            </div>
+
             <button id="cerrar-sesion" class="boton-panel">
                 Cerrar sesión
             </button>
+
         </header>
 
-        <h2>Panel de administración</h2>
-        <p>Administra tus prendas, fotografías, precios y disponibilidad.</p>
+        <h2 class="panel-titulo">
+            Panel de administración
+        </h2>
+
+        <p class="panel-descripcion">
+            Bienvenida a tu espacio de administración.
+            Desde aquí puedes gestionar las prendas de EUGY DESIGN,
+            actualizar fotografías, modificar precios y controlar
+            la disponibilidad de tu colección.
+        </p>
 
         <button id="nuevo-producto" class="boton-panel">
-            Agregar producto
+            + Agregar nueva prenda
         </button>
 
-        <p id="mensaje-panel">Cargando productos...</p>
+        <p id="mensaje-panel">
+            Cargando productos...
+        </p>
 
-        <section id="lista-admin" class="lista-admin"></section>
+        <section
+            id="lista-admin"
+            class="lista-admin">
+        </section>
 
-        <a href="index.html">Volver a la tienda</a>
+        <a href="index.html" class="panel-volver">
+            ← Volver a la tienda
+        </a>
+
+        <footer class="panel-pie">
+            EUGY DESIGN · Panel privado de administración
+        </footer>
 
     </main>
 
