@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración | EUGY DESIGN</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #dff2ff, #c6e8ff);
+            font-family: Arial, sans-serif;
+        }
+
+        .login-box {
+            width: 90%;
+            max-width: 420px;
+            padding: 35px;
+            background: white;
+            border: 2px solid #e0ad32;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(22, 77, 120, 0.15);
+            text-align: center;
+        }
+
+        .login-box h1 {
+            color: #164d78;
+            margin-bottom: 10px;
+        }
+
+        .login-box p {
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .login-box input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 13px;
+            margin-bottom: 15px;
+            border: 1px solid #b8d7ec;
+            border-radius: 9px;
+            font-size: 16px;
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 9px;
+            background: #164d78;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .login-box button:hover {
+            background: #b8860b;
+        }
+
+        #mensaje {
+            margin-top: 15px;
+            color: #b00020;
+            font-size: 14px;
+        }
+
+        .volver {
+            display: inline-block;
+            margin-top: 20px;
+            color: #164d78;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="login-box">
+        <h1>EUGY DESIGN</h1>
+        <p>Panel privado de administración</p>
+
+        <form id="formulario-login">
+            <input
+                type="email"
+                id="correo"
+                placeholder="Correo electrónico"
+                required
+            >
+
+            <input
+                type="password"
+                id="contrasena"
+                placeholder="Contraseña"
+                required
+            >
+
+            <button type="submit">Iniciar sesión</button>
+        </form>
+
+        <p id="mensaje"></p>
+
+        <a href="index.html" class="volver">Volver a la tienda</a>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+<script src="admin.js"></script>
+
+</body>
+</html>
